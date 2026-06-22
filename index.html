@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>森木TECH株式会社 | テクノロジーで未来を拓く</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0E0E10;
+    --green: #057A55;
+    --green-light: #0DBF7E;
+    --white: #F6F5F0;
+    --off-white: #EDEDEA;
+    --gray: #888885;
+    --gray-light: #CDCDC8;
+    --text: #1A1A1E;
+    --section-bg: #F2F1EC;
+    --border: #E0DED8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 72px;
+    background: rgba(14,14,16,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-logo-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-logo-text span {
+    color: var(--green-light);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.72);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  .nav-links a:hover { color: #fff; }
+
+  .nav-cta {
+    background: var(--green);
+    color: #fff !important;
+    padding: 9px 22px;
+    border-radius: 4px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--green-light) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -200px;
+    right: -100px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(5,122,85,0.15) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--green-light);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+
+  .hero-title .tech {
+    color: var(--green-light);
+  }
+
+  .hero-subtitle {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.15em;
+    margin-bottom: 36px;
+  }
+
+  .hero-tagline {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    margin-bottom: 48px;
+    max-width: 420px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--green);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--green-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.5);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  /* Hero SVG tree animation */
+  .hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .tree-svg {
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    filter: drop-shadow(0 0 40px rgba(5,122,85,0.22));
+  }
+
+  .tree-path {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: drawTree 2.4s ease forwards;
+  }
+
+  .tree-path:nth-child(2) { animation-delay: 0.3s; }
+  .tree-path:nth-child(3) { animation-delay: 0.6s; }
+  .tree-path:nth-child(4) { animation-delay: 0.9s; }
+  .tree-path:nth-child(5) { animation-delay: 1.1s; }
+  .tree-path:nth-child(6) { animation-delay: 1.3s; }
+
+  @keyframes drawTree {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .node-dot {
+    opacity: 0;
+    animation: fadeInDot 0.4s ease forwards;
+  }
+
+  .node-dot:nth-child(1) { animation-delay: 1.6s; }
+  .node-dot:nth-child(2) { animation-delay: 1.8s; }
+  .node-dot:nth-child(3) { animation-delay: 2.0s; }
+  .node-dot:nth-child(4) { animation-delay: 2.2s; }
+  .node-dot:nth-child(5) { animation-delay: 2.4s; }
+  .node-dot:nth-child(6) { animation-delay: 2.6s; }
+
+  @keyframes fadeInDot {
+    to { opacity: 1; }
+  }
+
+  .pulse-ring {
+    animation: pulseRing 2.5s ease-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+
+  @keyframes pulseRing {
+    0% { opacity: 0.8; transform: scale(1); }
+    100% { opacity: 0; transform: scale(2.2); }
+  }
+
+  /* Hero fade in */
+  .hero-text { animation: fadeUp 0.8s ease forwards; opacity: 0; }
+  .hero-text:nth-child(2) { animation-delay: 0.1s; }
+  .hero-text:nth-child(3) { animation-delay: 0.2s; }
+  .hero-text:nth-child(4) { animation-delay: 0.3s; }
+  .hero-text:nth-child(5) { animation-delay: 0.4s; }
+  .hero-text:nth-child(6) { animation-delay: 0.5s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── NUMBERS STRIP ── */
+  .numbers-strip {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 40px 48px;
+  }
+
+  .numbers-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .stat-item {
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    padding: 0 24px;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-num em {
+    color: var(--green-light);
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── SECTION COMMON ── */
+  section {
+    padding: 100px 48px;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+
+  .section-lead {
+    font-size: 17px;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.85;
+    max-width: 600px;
+    margin-bottom: 60px;
+  }
+
+  /* ── PHILOSOPHY ── */
+  #philosophy {
+    background: var(--black);
+    color: #fff;
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .philosophy-quote {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 700;
+    line-height: 1.5;
+    color: #fff;
+    position: relative;
+  }
+
+  .philosophy-quote::before {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: var(--green);
+    margin-bottom: 32px;
+  }
+
+  .philosophy-body {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    line-height: 2;
+  }
+
+  .philosophy-body h4 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 16px;
+    margin-top: 40px;
+  }
+
+  .philosophy-body h4:first-child { margin-top: 0; }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--section-bg);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 0;
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  }
+
+  .service-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 28px;
+  }
+
+  .service-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--green);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .service-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  .service-body {
+    font-size: 14px;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.85;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--section-bg);
+    border-radius: 2px;
+    color: #666;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── COMPANY PROFILE ── */
+  #company {
+    background: var(--white);
+  }
+
+  .company-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .profile-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .profile-table tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .profile-table th {
+    text-align: left;
+    padding: 18px 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+    width: 36%;
+    vertical-align: top;
+  }
+
+  .profile-table td {
+    padding: 18px 0 18px 16px;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+
+  .company-visual {
+    background: var(--section-bg);
+    border-radius: 8px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .value-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .value-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--black);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .value-icon svg { width: 22px; height: 22px; }
+
+  .value-text h5 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .value-text p {
+    font-size: 13px;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.8;
+  }
+
+  /* ── NEWS ── */
+  #news {
+    background: var(--section-bg);
+  }
+
+  .news-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .news-header .section-lead { margin-bottom: 0; }
+
+  .news-all-link {
+    color: var(--green);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.2s;
+    white-space: nowrap;
+  }
+
+  .news-all-link:hover { gap: 14px; }
+
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .news-item {
+    display: grid;
+    grid-template-columns: 130px 90px 1fr;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s;
+  }
+
+  .news-item:first-child { border-top: 1px solid var(--border); }
+  .news-item:hover { background: rgba(0,0,0,0.02); padding-left: 12px; }
+
+  .news-date {
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+
+  .news-cat {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--green);
+    background: rgba(5,122,85,0.09);
+    padding: 3px 10px;
+    border-radius: 2px;
+    text-align: center;
+  }
+
+  .news-title {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--black);
+    color: #fff;
+    text-align: center;
+    padding: 120px 48px;
+  }
+
+  .contact-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  #contact .section-title {
+    color: #fff;
+    font-size: clamp(32px, 4vw, 52px);
+    margin-bottom: 24px;
+  }
+
+  .contact-lead {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.9;
+    margin-bottom: 48px;
+  }
+
+  .contact-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-info {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    text-align: left;
+  }
+
+  .contact-info-item h6 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .contact-info-item p {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070709;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-logo {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .footer-logo span { color: var(--green-light); }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* kaisha label after main name */
+  .kaisha-label {
+    display: inline-block;
+    font-size: 0.26em;
+    font-weight: 400;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.28em;
+    margin-left: 14px;
+    vertical-align: middle;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  /* ── SERVICE CARD IMAGE OVERLAY ── */
+  .service-img-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 0.42s ease, transform 0.42s ease;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(0.55) brightness(0.85);
+  }
+
+  .service-img-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(2, 32, 20, 0.96) 0%,
+      rgba(4, 58, 36, 0.68) 45%,
+      rgba(3, 40, 25, 0.22) 100%
+    );
+  }
+
+  .service-card:hover .service-img-overlay {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .overlay-inner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 32px;
+  }
+
+  .overlay-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--green-light);
+    border: 1px solid rgba(13,191,126,0.5);
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .overlay-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+
+  .overlay-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.75;
+  }
+
+  /* ── FOUNDER SECTION ── */
+  .founder-section {
+    margin-top: 72px;
+    padding-top: 60px;
+    border-top: 1px solid var(--border);
+  }
+
+  .founder-section .section-eyebrow {
+    margin-bottom: 40px;
+  }
+
+  .founder-inner {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .founder-photo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .founder-avatar {
+    width: 220px;
+    height: 220px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #0E2E22 0%, #1A4A36 60%, #057A55 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .founder-name-block {
+    text-align: center;
+  }
+
+  .founder-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .founder-title-role {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--green);
+    letter-spacing: 0.1em;
+  }
+
+  .founder-message h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    color: var(--text);
+  }
+
+  .founder-message p {
+    font-size: 15px;
+    font-weight: 300;
+    color: #555;
+    line-height: 2;
+    margin-bottom: 16px;
+  }
+
+  .career-timeline {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 2px solid var(--border);
+    padding-left: 24px;
+  }
+
+  .career-item {
+    position: relative;
+    padding-bottom: 20px;
+  }
+
+  .career-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    border: 2px solid var(--white);
+    outline: 1px solid var(--green);
+  }
+
+  .career-item:last-child { padding-bottom: 0; }
+
+  .career-year {
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+
+  .career-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .founder-inner { grid-template-columns: 1fr; gap: 40px; }
+    .founder-avatar { width: 160px; height: 160px; }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    section { padding: 72px 24px; }
+    #hero { padding: 100px 24px 72px; }
+
+    .hero-content { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { order: -1; }
+    .tree-svg { max-width: 280px; }
+
+    .numbers-strip { padding: 32px 24px; }
+    .numbers-inner { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 0; }
+    .stat-item:nth-child(2n) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .stat-item:last-child, .stat-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+
+    .philosophy-grid { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr; gap: 2px; }
+    .company-inner { grid-template-columns: 1fr; gap: 48px; }
+
+    .news-item { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
+
+    .contact-info { grid-template-columns: 1fr; }
+
+    footer { flex-direction: column; align-items: flex-start; padding: 32px 24px; }
+
+    .numbers-inner { gap: 0; }
+  }
+
+  @media (min-width: 901px) and (max-width: 1100px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">
+    <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="36" height="36" rx="4" fill="#057A55"/>
+      <path d="M18 6 L18 30 M10 14 L18 8 L26 14 M10 22 L18 16 L26 22" 
+            stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-logo-text">森木<span>TECH</span></span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#philosophy">経営理念</a></li>
+    <li><a href="#services">事業内容</a></li>
+    <li><a href="#company">会社概要</a></li>
+    <li><a href="#news">ニュース</a></li>
+    <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
+  </ul>
+
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div>
+      <h1 class="hero-title hero-text">
+        森木<span class="tech">TECH</span><span class="kaisha-label">株式会社</span>
+      </h1>
+      <p class="hero-tagline hero-text">
+        AIインフラ・AIGCマーケティング・次世代空間コンピューティングを核心に、<br>
+        データ基盤の構築から未来の虚実融合体験まで、<br>
+        フルスタックのAIソリューションを提供します。
+      </p>
+      <div class="hero-btns hero-text">
+        <a href="#services" class="btn-primary">事業内容を見る</a>
+        <a href="#contact" class="btn-ghost">お問い合わせ</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <svg class="tree-svg" viewBox="0 0 460 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Grid lines background -->
+        <line x1="0" y1="200" x2="460" y2="200" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="230" y1="0" x2="230" y2="400" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+
+        <!-- Main trunk -->
+        <path class="tree-path" d="M230 360 L230 180" stroke="#057A55" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- Primary branches -->
+        <path class="tree-path" d="M230 260 L130 160" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+        <path class="tree-path" d="M230 260 L330 160" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Secondary branches left -->
+        <path class="tree-path" d="M130 160 L60 90" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-linecap="round"/>
+        <path class="tree-path" d="M130 160 L155 80" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-linecap="round"/>
+
+        <!-- Secondary branches right -->
+        <path class="tree-path" d="M330 160 L400 90" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-linecap="round"/>
+        <path class="tree-path" d="M330 160 L305 80" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-linecap="round"/>
+
+        <!-- Top -->
+        <path class="tree-path" d="M230 180 L185 110" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="tree-path" d="M230 180 L275 110" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="tree-path" d="M230 180 L230 50" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-linecap="round"/>
+
+        <!-- Base roots -->
+        <path class="tree-path" d="M230 360 L170 390" stroke="rgba(5,122,85,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+        <path class="tree-path" d="M230 360 L290 390" stroke="rgba(5,122,85,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Node dots -->
+        <g>
+          <!-- Root node -->
+          <circle cx="230" cy="360" r="8" fill="#057A55" class="node-dot"/>
+          <circle cx="230" cy="360" r="14" fill="none" stroke="#057A55" stroke-width="1" opacity="0.3" class="node-dot pulse-ring"/>
+
+          <!-- Junction nodes -->
+          <circle cx="230" cy="260" r="5" fill="rgba(255,255,255,0.9)" class="node-dot"/>
+          <circle cx="130" cy="160" r="5" fill="rgba(255,255,255,0.9)" class="node-dot"/>
+          <circle cx="330" cy="160" r="5" fill="rgba(255,255,255,0.9)" class="node-dot"/>
+          <circle cx="230" cy="180" r="5" fill="#057A55" class="node-dot"/>
+
+          <!-- Terminal nodes -->
+          <circle cx="60" cy="90" r="4" fill="rgba(5,122,85,0.8)" class="node-dot"/>
+          <circle cx="155" cy="80" r="4" fill="rgba(5,122,85,0.8)" class="node-dot"/>
+          <circle cx="305" cy="80" r="4" fill="rgba(5,122,85,0.8)" class="node-dot"/>
+          <circle cx="400" cy="90" r="4" fill="rgba(5,122,85,0.8)" class="node-dot"/>
+          <circle cx="185" cy="110" r="4" fill="rgba(255,255,255,0.6)" class="node-dot"/>
+          <circle cx="275" cy="110" r="4" fill="rgba(255,255,255,0.6)" class="node-dot"/>
+          <circle cx="230" cy="50" r="6" fill="#057A55" class="node-dot"/>
+          <circle cx="170" cy="390" r="4" fill="rgba(5,122,85,0.45)" class="node-dot"/>
+          <circle cx="290" cy="390" r="4" fill="rgba(5,122,85,0.45)" class="node-dot"/>
+        </g>
+
+        <!-- Label tags -->
+        <g opacity="0" style="animation: fadeInDot 0.5s 2.8s ease forwards;">
+          <rect x="180" y="30" width="100" height="22" rx="3" fill="rgba(5,122,85,0.15)" stroke="rgba(5,122,85,0.45)" stroke-width="0.8"/>
+          <text x="230" y="45" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#0DBF7E" letter-spacing="1">INNOVATION</text>
+        </g>
+        <g opacity="0" style="animation: fadeInDot 0.5s 3.0s ease forwards;">
+          <rect x="14" y="78" width="90" height="22" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+          <text x="59" y="93" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)" letter-spacing="0.5">GLOBAL</text>
+        </g>
+        <g opacity="0" style="animation: fadeInDot 0.5s 3.2s ease forwards;">
+          <rect x="356" y="78" width="84" height="22" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+          <text x="398" y="93" text-anchor="middle" font-family="Inter, sans-serif" font-size="9.5" fill="rgba(255,255,255,0.5)" letter-spacing="0.5">DIGITAL</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS STRIP -->
+<div class="numbers-strip">
+  <div class="numbers-inner">
+    <div class="stat-item">
+      <div class="stat-num">50<em>+</em></div>
+      <div class="stat-label">導入企業数</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12</div>
+      <div class="stat-label">対応国・地域</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">98<em>%</em></div>
+      <div class="stat-label">顧客継続率</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">15<em>+</em></div>
+      <div class="stat-label">専門エンジニア</div>
+    </div>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="section-inner">
+    <div class="philosophy-grid">
+      <div class="reveal">
+        <p class="section-eyebrow" style="color: var(--green-light);">経営理念</p>
+        <blockquote class="philosophy-quote">
+          「見る」を変えると、<br>
+          文化が変わる。
+        </blockquote>
+      </div>
+      <div class="philosophy-body reveal">
+        <h4>Our Vision</h4>
+        <p>エンターテインメントと文化の表現において、「グラフィクス」は単なる技術ではなく、人の心を動かす言語です。森木TECHは、AI図形・視覚技術を核心に、アニメ・映画・ライブ・デジタルアートの現場に新しい創造力を届け、文化コンテンツの可能性を切り拓きます。</p>
+
+        <h4>Our Mission</h4>
+        <p>クリエイター・エンタメ企業・文化機関が「創りたいもの」を「実現できるもの」へと変えるために。AIビジュアル技術で制作の限界を超え、日本とアジアの文化コンテンツが世界中を感動させる未来を共に構築します。</p>
+
+        <h4>Our Values</h4>
+        <p>アニメの一コマに宿る繊細な美、ライブ空間を包む光のスペクタクル——精度と美意識を同時に高めてこそ、AIは文化の力を増幅できると私たちは信じています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">事業内容</p>
+    <h2 class="section-title reveal">AIが切り拓く、<br>次世代フルスタック</h2>
+    <p class="section-lead reveal">AIデータ基盤からAIGCコンテンツ生成、没入型空間体験まで——6つの領域で未来を構築します。</p>
+
+    <div class="services-grid">
+
+      <!-- 01 AI Vision -->
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="8" fill="#F0FAF5"/>
+          <ellipse cx="24" cy="24" rx="14" ry="9" stroke="#057A55" stroke-width="2"/>
+          <circle cx="24" cy="24" r="5" stroke="#057A55" stroke-width="2"/>
+          <circle cx="24" cy="24" r="2" fill="#057A55"/>
+          <circle cx="10" cy="24" r="2" fill="#0DBF7E"/>
+          <circle cx="38" cy="24" r="2" fill="#0DBF7E"/>
+          <line x1="10" y1="22" x2="8" y2="17" stroke="#0DBF7E" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="38" y1="22" x2="40" y2="17" stroke="#0DBF7E" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-title">AIグラフィクス＆<br>アニメーション制作支援</h3>
+        <p class="service-body">アニメ・映画・ゲームの制作現場に特化したAIビジュアル技術。キャラクター認識・スタイル転送・フレーム補間を提供し、クリエイターの表現力と制作効率を同時に引き上げます。</p>
+        <div class="service-tags">
+          <span class="tag">アニメーション</span>
+          <span class="tag">VFX</span>
+          <span class="tag">スタイル転送</span>
+        </div>
+        <div class="service-img-overlay" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80')">
+          <div class="overlay-inner">
+            <span class="overlay-badge">CASE STUDY</span>
+            <div class="overlay-title">AIアニメーション制作支援</div>
+            <div class="overlay-desc">アニメスタジオA社にAI中割り補間システムを導入。<br>作画工数40%削減・制作速度2倍を達成しクオリティを維持。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Metaverse -->
+      <div class="service-card reveal">
+        <span class="service-num">02</span>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="8" fill="#F0FAF5"/>
+          <path d="M24 8 L38 16 L38 32 L24 40 L10 32 L10 16 Z" stroke="#057A55" stroke-width="2"/>
+          <path d="M24 8 L24 24" stroke="#057A55" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M38 16 L24 24" stroke="#057A55" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M10 16 L24 24" stroke="#057A55" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="3" fill="#0DBF7E"/>
+        </svg>
+        <h3 class="service-title">メタバース空間構築<br>＆デジタルツイン</h3>
+        <p class="service-body">NeRF・Gaussian Splattingで物理空間を精密にデジタル化。産業ツイン・文旅空間・バーチャル展示ホールを構築します。</p>
+        <div class="service-tags">
+          <span class="tag">NeRF/GS</span>
+          <span class="tag">デジタルツイン</span>
+          <span class="tag">空間コンピューティング</span>
+        </div>
+        <div class="service-img-overlay" style="background-image:url('https://images.unsplash.com/photo-1563089145-599997674d42?w=700&q=80')">
+          <div class="overlay-inner">
+            <span class="overlay-badge">CASE STUDY</span>
+            <div class="overlay-title">メタバース空間構築</div>
+            <div class="overlay-desc">不動産C社向けにNeRFオンライン内覧システムを構築。<br>遠隔内覧の導入で成約率1.8倍を達成。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 Virtual Humans -->
+      <div class="service-card reveal">
+        <span class="service-num">03</span>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="8" fill="#F0FAF5"/>
+          <circle cx="24" cy="18" r="7" stroke="#057A55" stroke-width="2"/>
+          <path d="M13 40 C13 32 18 28 24 28 C30 28 35 32 35 40" stroke="#057A55" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10" y1="11" x2="14" y2="11" stroke="#0DBF7E" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="10" y1="11" x2="10" y2="15" stroke="#0DBF7E" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="38" y1="11" x2="34" y2="11" stroke="#0DBF7E" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="38" y1="11" x2="38" y2="15" stroke="#0DBF7E" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-title">バーチャルヒューマン<br>＆デジタルIP開発</h3>
+        <p class="service-body">超写実・二次元バーチャルキャラクターのIPインキュベーションから、声・表情・動作のAIマルチモーダルリアルタイム駆動まで一貫対応。</p>
+        <div class="service-tags">
+          <span class="tag">バーチャルIP</span>
+          <span class="tag">AIマルチモーダル</span>
+          <span class="tag">ライブコマース</span>
+        </div>
+        <div class="service-img-overlay" style="background-image:url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=700&q=80')">
+          <div class="overlay-inner">
+            <span class="overlay-badge">CASE STUDY</span>
+            <div class="overlay-title">バーチャルヒューマン</div>
+            <div class="overlay-desc">アパレルD社専属バーチャルアイドルを開発・運用。<br>SNS公開初月でフォロワー100万人を突破。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 XR -->
+      <div class="service-card reveal">
+        <span class="service-num">04</span>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="8" fill="#F0FAF5"/>
+          <path d="M5 22 L9 17 L19 17 Q24 14 29 17 L39 17 L43 22 L43 31 L29 31 Q24 34 19 31 L5 31 Z" stroke="#057A55" stroke-width="2"/>
+          <circle cx="15" cy="24" r="4" stroke="#057A55" stroke-width="1.8"/>
+          <circle cx="33" cy="24" r="4" stroke="#057A55" stroke-width="1.8"/>
+          <circle cx="15" cy="24" r="1.5" fill="#057A55"/>
+          <circle cx="33" cy="24" r="1.5" fill="#057A55"/>
+        </svg>
+        <h3 class="service-title">XR＆没入型<br>インタラクション体験</h3>
+        <p class="service-body">VR/AR/MRで現実と仮想の境界を超え、Apple Vision Pro・Meta Questに対応した革新的な空間インタラクション体験を実現。</p>
+        <div class="service-tags">
+          <span class="tag">VR/AR/MR</span>
+          <span class="tag">Apple Vision Pro</span>
+          <span class="tag">没入型研修</span>
+        </div>
+        <div class="service-img-overlay" style="background-image:url('https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=700&q=80')">
+          <div class="overlay-inner">
+            <span class="overlay-badge">CASE STUDY</span>
+            <div class="overlay-title">XR没入型体験</div>
+            <div class="overlay-desc">製造業E社向けVR安全研修システムを開発。<br>研修時間50%短縮・知識定着率3倍向上を実現。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 AIGC -->
+      <div class="service-card reveal">
+        <span class="service-num">05</span>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="8" fill="#F0FAF5"/>
+          <line x1="13" y1="36" x2="31" y2="18" stroke="#057A55" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M33 12 L35 16 L39 12 L35 8 Z" fill="#057A55"/>
+          <line x1="37" y1="21" x2="40" y2="24" stroke="#0DBF7E" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="40" y1="16" x2="44" y2="14" stroke="#0DBF7E" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="27" y1="8" x2="25" y2="5" stroke="#0DBF7E" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="43" y1="10" x2="40" y2="8" stroke="#0DBF7E" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-title">AIGC＆マーケティング<br>自動化</h3>
+        <p class="service-body">生成AIの生産力を最大化し、EC商品画像・AI動画編集・多言語ブランドコピーの全自動コンテンツ制作マトリクスを構築。</p>
+        <div class="service-tags">
+          <span class="tag">AI画像生成</span>
+          <span class="tag">動画自動編集</span>
+          <span class="tag">多言語コピー</span>
+        </div>
+        <div class="service-img-overlay" style="background-image:url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?w=700&q=80')">
+          <div class="overlay-inner">
+            <span class="overlay-badge">CASE STUDY</span>
+            <div class="overlay-title">AIGC＆マーケティング</div>
+            <div class="overlay-desc">EC企業F社がAI商品撮影を導入。<br>撮影コスト90%削減・月産コンテンツ100倍増を達成。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 Entertainment IP AI -->
+      <div class="service-card reveal">
+        <span class="service-num">06</span>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="8" fill="#F0FAF5"/>
+          <path d="M20 35 L20 26 C16 26 12 22 14 18 C16 14 20 13 23 15 C25 11 30 11 33 14 C37 12 39 17 37 21 C39 23 38 28 35 29 L35 35" stroke="#057A55" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="20" y1="35" x2="35" y2="35" stroke="#057A55" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="17" cy="22" r="2" fill="#0DBF7E"/>
+          <circle cx="31" cy="15" r="2" fill="#0DBF7E"/>
+          <circle cx="37" cy="25" r="2" fill="#0DBF7E"/>
+        </svg>
+        <h3 class="service-title">エンタメIP特化型AI<br>＆クリエイター支援</h3>
+        <p class="service-body">アニメ・映画・音楽など文化IPのデータを知識グラフ化し、脚本支援・ファン動向分析・IP展開戦略提案まで、エンターテインメント産業のクリエイターを支えるAI基盤を構築します。</p>
+        <div class="service-tags">
+          <span class="tag">IP知識グラフ</span>
+          <span class="tag">クリエイター支援AI</span>
+          <span class="tag">ファン分析</span>
+        </div>
+        <div class="service-img-overlay" style="background-image:url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700&q=80')">
+          <div class="overlay-inner">
+            <span class="overlay-badge">CASE STUDY</span>
+            <div class="overlay-title">エンタメIP特化型AI</div>
+            <div class="overlay-desc">大手エンタメG社にIPナレッジAIエージェントを導入。<br>版権管理・ファン分析・企画立案の工数を大幅に削減。</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY PROFILE -->
+<section id="company">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">会社概要</p>
+    <h2 class="section-title reveal">森木TECH株式会社について</h2>
+
+    <div class="company-inner">
+      <div class="reveal">
+        <table class="profile-table">
+          <tr><th>会社名</th><td>森木TECH株式会社<br><span style="font-size:13px;color:#888;">Moriki Tech Co., Ltd.</span></td></tr>
+          <tr><th>設立</th><td>2024年</td></tr>
+          <tr><th>代表取締役</th><td>胡瑞聞</td></tr>
+          <tr><th>所在地</th><td>〒174-0000<br>東京都板橋区</td></tr>
+          <tr><th>事業内容</th><td>AIビジョン＆データソリューション<br>メタバース空間構築・デジタルツイン<br>バーチャルヒューマン・XR体験<br>AIGC・エンタープライズLLM開発</td></tr>
+          <tr><th>主要取引先</th><td>国内外の製造業・商社・テクノロジー企業</td></tr>
+          <tr><th>対応言語</th><td>日本語・英語・中国語</td></tr>
+        </table>
+      </div>
+
+      <div class="company-visual reveal">
+        <div class="value-item">
+          <div class="value-icon">
+            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 2 L11 20 M5 8 L11 3 L17 8 M5 14 L11 9 L17 14" stroke="#057A55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="value-text">
+            <h5>根を張る誠実さ</h5>
+            <p>「木」のように大地に根を張り、クライアントとの長期的な信頼関係を築きます。</p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-icon">
+            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="9" stroke="#057A55" stroke-width="2"/>
+              <path d="M7 11 L10 14 L15 9" stroke="#057A55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="value-text">
+            <h5>枝を伸ばす革新</h5>
+            <p>常に新しい技術に挑戦し、クライアントのビジネスとともに成長し続けます。</p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-icon">
+            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="9" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+              <path d="M4 11 C4 7 7 4 11 4 M18 11 C18 15 15 18 11 18" stroke="#057A55" stroke-width="2" stroke-linecap="round"/>
+              <line x1="4" y1="11" x2="18" y2="11" stroke="#057A55" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="value-text">
+            <h5>森のようなグローバル視点</h5>
+            <p>多様な文化・言語に対応し、国際ビジネスの複雑な課題にも柔軟に対処します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 代表メッセージ -->
+    <div class="founder-section reveal">
+      <p class="section-eyebrow">代表メッセージ</p>
+      <div class="founder-inner">
+        <div class="founder-photo-wrap">
+          <div class="founder-avatar">
+            <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" width="220" height="220">
+              <circle cx="110" cy="85" r="42" fill="rgba(255,255,255,0.15)"/>
+              <ellipse cx="110" cy="190" rx="68" ry="44" fill="rgba(255,255,255,0.1)"/>
+              <!-- subtle wood-grain lines referencing 木 -->
+              <line x1="110" y1="40" x2="110" y2="130" stroke="rgba(13,191,126,0.35)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="75" y1="65" x2="110" y2="50" stroke="rgba(13,191,126,0.25)" stroke-width="1" stroke-linecap="round"/>
+              <line x1="145" y1="65" x2="110" y2="50" stroke="rgba(13,191,126,0.25)" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="founder-name-block">
+            <div class="founder-name">〇〇 〇〇</div>
+            <div class="founder-title-role">代表取締役 CEO</div>
+          </div>
+        </div>
+
+        <div class="founder-message">
+          <h3>テクノロジーの力で、<br>ビジネスの可能性を<br>無限に広げたい。</h3>
+          <p>
+            私が森木TECHを創業したのは、「テクノロジーは、使う人の手に届いてはじめて価値を持つ」という信念からです。
+            日本企業が世界で戦う際に、ITが足かせになっていることを何度も目の当たりにしてきました。
+          </p>
+          <p>
+            森（森）のように多様で豊かに、木（木）のように根を張って誠実に——この社名に込めた思いを胸に、
+            私たちはクライアントの事業成長に伴走し続けます。国内外のネットワークと最先端の技術力を活かし、
+            ともに新しい未来を切り拓いていきましょう。
+          </p>
+
+          <div class="career-timeline">
+            <div class="career-item">
+              <div class="career-year">20XX年</div>
+              <div class="career-desc">大手ITコンサルティング会社に入社。国内外の大手企業向けDXプロジェクトを多数担当。</div>
+            </div>
+            <div class="career-item">
+              <div class="career-year">20XX年</div>
+              <div class="career-desc">グローバルIT企業の日本法人にてアジア太平洋地域の事業開発を統括。</div>
+            </div>
+            <div class="career-item">
+              <div class="career-year">2024年</div>
+              <div class="career-desc">森木TECH株式会社を設立、代表取締役に就任。東京・板橋を拠点にグローバル展開を推進。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section id="news">
+  <div class="section-inner">
+    <div class="news-header">
+      <div>
+        <p class="section-eyebrow reveal">ニュース</p>
+        <h2 class="section-title reveal" style="margin-bottom:0;">最新情報</h2>
+      </div>
+      <a href="#" class="news-all-link reveal">すべて見る →</a>
+    </div>
+
+    <div class="news-list reveal">
+      <a href="#" class="news-item">
+        <span class="news-date">2026.06.10</span>
+        <span class="news-cat">お知らせ</span>
+        <span class="news-title">森木TECH、東南アジア向けグローバルITサービスの提供を開始</span>
+      </a>
+      <a href="#" class="news-item">
+        <span class="news-date">2026.05.20</span>
+        <span class="news-cat">プレスリリース</span>
+        <span class="news-title">メタバース事業における戦略的パートナーシップ締結のお知らせ</span>
+      </a>
+      <a href="#" class="news-item">
+        <span class="news-date">2026.04.15</span>
+        <span class="news-cat">採用情報</span>
+        <span class="news-title">2027年度 新卒・中途採用の応募受付を開始しました</span>
+      </a>
+      <a href="#" class="news-item">
+        <span class="news-date">2026.03.01</span>
+        <span class="news-cat">実績</span>
+        <span class="news-title">製造業A社様 DX推進プロジェクト完了のご報告</span>
+      </a>
+      <a href="#" class="news-item">
+        <span class="news-date">2026.01.10</span>
+        <span class="news-cat">お知らせ</span>
+        <span class="news-title">HR管理システム「MoriHR」v2.0 リリースのお知らせ</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-eyebrow" style="color: var(--green-light); text-align:center; margin-bottom: 20px;">お問い合わせ</p>
+    <h2 class="section-title reveal">プロジェクトについて<br>ご相談ください</h2>
+    <p class="contact-lead reveal">
+      新規プロジェクト・既存システムの改善・グローバル展開など、<br>
+      どのようなご相談も承ります。まずはお気軽にお声がけください。
+    </p>
+    <div class="contact-btns reveal">
+      <a href="mailto:info@morikitech.com" class="btn-primary">メールで問い合わせる</a>
+      <a href="tel:+8103-XXXX-XXXX" class="btn-ghost">電話で問い合わせる</a>
+    </div>
+
+    <div class="contact-info reveal">
+      <div class="contact-info-item">
+        <h6>所在地</h6>
+        <p>〒174-0000<br>東京都板橋区<br>森木TECHビル</p>
+      </div>
+      <div class="contact-info-item">
+        <h6>営業時間</h6>
+        <p>月〜金 9:00 – 18:00<br>（土日祝日休み）<br>info@morikitech.com</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">森木<span>TECH</span>株式会社</div>
+
+  <ul class="footer-links">
+    <li><a href="#philosophy">経営理念</a></li>
+    <li><a href="#services">事業内容</a></li>
+    <li><a href="#company">会社概要</a></li>
+    <li><a href="#news">ニュース</a></li>
+    <li><a href="#">採用情報</a></li>
+    <li><a href="#">プライバシーポリシー</a></li>
+  </ul>
+
+  <p class="footer-copy">© 2026 Moriki Tech Co., Ltd. All rights reserved.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.style.height = '60px';
+    } else {
+      nav.style.height = '72px';
+    }
+  });
+
+  // Hamburger
+  document.getElementById('hamburger').addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+    } else {
+      links.style.display = 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = '72px';
+      links.style.left = '0';
+      links.style.right = '0';
+      links.style.background = 'rgba(14,14,16,0.98)';
+      links.style.padding = '24px 24px 32px';
+      links.style.gap = '20px';
+      links.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+    }
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      links.style.display = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
